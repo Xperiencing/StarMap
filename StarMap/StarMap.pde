@@ -26,6 +26,8 @@ void draw()
 {
    background(0);
    draw_grid();
+   plot_stars();
+   
 }
 
 //A funtion to read in the data or the star map into the program.
@@ -93,10 +95,12 @@ void draw_grid()
   //It leaves an equal space for the gridlines.
   float increment = (width - (border * 2))/10;
   
+  //Setting colors and text specifications
   textAlign(CENTER);
   textSize(12);
   fill(0, 200, 144);
   stroke(0, 200, 144);
+  strokeWeight(1);
   
   for (int i = -5; i < 6; i++)
   {
@@ -105,6 +109,7 @@ void draw_grid()
     x++;
   }
   
+  //Reseting values for the opposite axis
   x = 0;
   x_pos = border;
   y_pos = border;
@@ -116,7 +121,28 @@ void draw_grid()
     x++;
   }
   
-  
+}
+
+void plot_stars()
+{
+   float x_cord;
+   float y_cord;
+   
+   
+   for(int i=0; i < stars_list.size(); i++)
+   {
+     x_cord = stars_list.get(i).x_cord;
+     y_cord = stars_list.get(i).y_cord;
+     
+     
+     x_cord = map(x_cord, -5.0f, 5.0f, border, width - border);
+     y_cord = map(y_cord, -5.0f, 5.0f, border, height - border);
+     
+     stroke(255, 255, 0);
+     strokeWeight(2);
+     line(x_cord - 3, y_cord, x_cord + 3, y_cord);
+     line(x_cord, y_cord - 3, x_cord, y_cord + 3);
+   }
   
 }
 
