@@ -20,7 +20,7 @@ class Star
     this.star_size = 0;
   }
   
-  //Default constructors 
+  // constructors 
   Star(TableRow data)
   {
     this.hab = data.getFloat("hab"); 

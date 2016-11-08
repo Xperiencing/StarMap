@@ -6,6 +6,8 @@ ArrayList<Star> stars_list = new ArrayList<Star> ();
 
 Table star_map_table;
 
+float border = 50;
+
 void setup()
 {
   size (800, 800);
@@ -18,6 +20,12 @@ void setup()
   
   //Calling print stars to print out the list of stars got from the file.
   printStars();
+}
+
+void draw()
+{
+   background(0);
+   draw_grid();
 }
 
 //A funtion to read in the data or the star map into the program.
@@ -75,6 +83,42 @@ void printStars()
   }
 }
 
+void draw_grid()
+{
+  float x_pos = border;
+  float y_pos = border;
+  int x = 0;
+  
+  //this is to allow for changes in scrren size if any were to occur.
+  //It leaves an equal space for the gridlines.
+  float increment = (width - (border * 2))/10;
+  
+  textAlign(CENTER);
+  textSize(12);
+  fill(0, 200, 144);
+  stroke(0, 200, 144);
+  
+  for (int i = -5; i < 6; i++)
+  {
+    text(i, x_pos + (increment * x), y_pos - 10);
+    line(x_pos + (increment * x), y_pos, x_pos + (increment * x), height - border);
+    x++;
+  }
+  
+  x = 0;
+  x_pos = border;
+  y_pos = border;
+  
+  for (int i = -5; i < 6; i++)
+  {
+    text(i, x_pos - 20, y_pos + (increment * x));
+    line(x_pos, y_pos + (increment * x), width - border, y_pos + (increment * x));
+    x++;
+  }
+  
+  
+  
+}
 
   
   
