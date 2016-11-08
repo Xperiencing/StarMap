@@ -21,15 +21,20 @@ class Star
   }
   
   //Default constructors 
-  Star(float hab, String name, float distance, float x_cord, float y_cord, float z_cord, float star_size)
+  Star(TableRow data)
   {
-    this.hab = hab; 
-    this. name = name;
-    this.distance = distance;
-    this.x_cord = x_cord;
-    this.y_cord = y_cord;
-    this.z_cord = z_cord;
-    this.star_size = star_size;
+    this.hab = data.getFloat("hab"); 
+    this. name = data.getString("name");
+    this.distance = data.getFloat("distance");
+    this.x_cord = data.getFloat("x_cord");
+    this.y_cord = data.getFloat("y_cord");
+    this.z_cord = data.getFloat("z_cord");
+    this.star_size = data.getFloat("star_size");
+  }
+  
+  String toString()
+  {
+    return hab + "\t" + name + "\t" + distance + "\t" + x_cord + "\t" + y_cord + "\t" + z_cord + "\t" + star_size;
   }
   
   

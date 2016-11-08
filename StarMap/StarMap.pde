@@ -2,7 +2,7 @@
 //08/11/2016
 
 //An array list to store the data from the file that is read in
-ArrayList<Star> stars = new ArrayList<Star> ();
+ArrayList<Star> stars_list = new ArrayList<Star> ();
 
 Table star_map_table;
 
@@ -49,6 +49,12 @@ void loadData()
     data.setFloat("y_cord", y_cord);
     data.setFloat("z_cord", z_cord);
     data.setFloat("star_size", star_size);
+    
+    //Creating a new Object for the data that has just been read in
+    Star new_star = new Star(data);
+    
+    //Adding the object to the array list
+    stars_list.add(new_star);
     
   }
 }
