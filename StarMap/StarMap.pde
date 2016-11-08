@@ -27,6 +27,7 @@ void draw()
    background(0);
    draw_grid();
    plot_stars();
+   draw_line();
    
 }
 
@@ -127,13 +128,15 @@ void plot_stars()
 {
    float x_cord;
    float y_cord;
-   
+   float size;
+   String name;
    
    for(int i=0; i < stars_list.size(); i++)
    {
      x_cord = stars_list.get(i).x_cord;
      y_cord = stars_list.get(i).y_cord;
-     
+     size = stars_list.get(i).star_size;
+     name = stars_list.get(i).name;
      
      x_cord = map(x_cord, -5.0f, 5.0f, border, width - border);
      y_cord = map(y_cord, -5.0f, 5.0f, border, height - border);
@@ -142,8 +145,22 @@ void plot_stars()
      strokeWeight(2);
      line(x_cord - 3, y_cord, x_cord + 3, y_cord);
      line(x_cord, y_cord - 3, x_cord, y_cord + 3);
+     
+     stroke(255, 0, 0);
+     noFill();
+     ellipse(x_cord, y_cord, size, size);
+     
+     fill(255);
+     textAlign(LEFT);
+     textSize(10);
+     text(name, x_cord + 10, y_cord);
    }
   
+}
+
+void draw_line()
+{
+
 }
 
   
